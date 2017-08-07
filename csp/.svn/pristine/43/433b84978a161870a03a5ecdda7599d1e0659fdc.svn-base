@@ -1,0 +1,48 @@
+/* ÐÞ¸ÄplaceholderµÄÑÕÉ« */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #fff;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #fff;
+}
+input:-moz-placeholder,textarea:-moz-placeholder {color: #fff;}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+video {
+width: 100%;
+ display:block;
+position: absolute;
+-webkit-filter: blur(5.0px); /* Chrome, Opera */
+       -moz-filter: blur(5.0px);
+        -ms-filter: blur(5.0px);
+            filter: blur(5.0px);
+}
+
+input:-webkit-autofill {background:transparent;}
+input[required]:invalid, input:focus:invalid, textarea[required]:invalid, textarea:focus:invalid{box-shadow: none;}
+input:focus{outline:none;}
+input:required:invalid{box-shadow: none;-moz-box-shadow:none;}
+
+
+.login-left {display: inline-block;position: fixed;width: 38%;left:0;top:0;color:#fff;padding-left: 9.7%;box-sizing: border-box;}
+.login-left h1 {margin: 220px 0 32px 0;font-size:64px;letter-spacing: 9.9px;font-weight:normal;}
+.login-left p {font-size:24px;line-height: 50px;letter-spacing:6.7px;font-weight:normal;font-family: 'Î¢ÈíÑÅºÚ';}
+.login-right {display: inline-block;position: fixed;width: 62%;right:0;top:0;padding-right: 5.6%;padding: 1% 5.6% 0 290px;box-sizing:border-box;}
+.login-right img {display: block;width: 18.75%;margin-left: 100px;}
+.login-right input {margin:0 auto;width:73%;height: 90px;border:none;border-bottom:2px solid rgba(251, 251, 251, 0.29);padding:30px 0 0 28px;background-color: transparent !important;font-size:19.8px;box-sizing:border-box;color:#fff;outline:none;}
+.login-right input:link,
+.login-right input:visited,
+.login-right input:hover,
+.login-right input:active{outline: none;border:none;border-bottom:2px solid rgba(251, 251, 251, 0.29);}
+.login-right a {position: absolute;right:25.4%;top:66%;background-color: transparent;color:#fff;text-align: center;line-height: 44px;outline:none;}
+.login-right a img#vCode {width: 120px;height: 44px;border-radius: 5px;margin-left: 0;}
+.login-right button {width: 410px;height: 54px;margin: 25px 0 0 -30px;background: url(../images/btn/btn_login.png) no-repeat center top;background-size: 388px 52px;border:none;outline:none;}
+.login-right .re {margin-top: 24px;padding-left:54.4%;}
+.login-right .re input[type='checkbox'] {width: 18px;height: 18px;background-color: transparent;vertical-align: middle;margin-right: 15px;}
+.login-right .re span {font-size:16.5px;color:#fff;}

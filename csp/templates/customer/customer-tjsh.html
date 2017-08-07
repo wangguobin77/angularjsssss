@@ -1,0 +1,106 @@
+<div class="content-left">
+<h1 class='c-h1'>新增商户</h1>
+    <div class="tjsh-left">
+        <ul>
+            <li>
+                <p>公司名称</p>
+                <input type="text" ng-model='gsName'>
+                <img ng-src={{glSrc}} ng-click='switchSrc1()'>
+                <span ng-bind='txt1'></span>
+            </li>
+             <li>
+                <span>商户名称</span>
+                <span ng-show='!chain' style='margin-left: -70px;'>连锁机构</span>
+                <input type="text"  ng-model='custName'>
+                <img ng-src={{lsSrc}} ng-click='switchSrc2()'>
+                <span ng-show='chain' style='color:#bdbdbd;'>非连锁</span>
+                 <select ng-show='!chain' ng-repeat='chainM in chainMs' ng-model='chains'>
+                <option ng-bind='chainM'>上海盛大汽车生活馆</option>
+        </select>
+            </li>
+            <li>
+                <span>账号</span>
+                <span>密码</span>
+                <span>营业时间</span><br>
+                <input ng-class='{"inp1":true,"active":flag4}' type="text" ng-model='account' placeholder="请输入账号">
+                <input type="text" ng-model='password' ng-click='testAccount()' placeholder="请输入初始密码">
+                <input class='wid' ng-model="openTime" type="text">
+                <input class='wid' ng-model="closeTime" type="text">
+
+            </li>
+             <li>
+                <p>银行账号</p>
+                <div>
+                     <input type="text" ng-model='bankAccount' ng-blur='getBankName()'>
+                     <a href="" ng-bind='bankName'></a>
+                </div>
+            </li>
+            <li id='li'>
+                <p>商户负责人</p>
+                <div>
+                     <input placeholder="姓名" type="text" ng-model='handlerName'>
+                     <input placeholder="性别" type="text" ng-model='handlerSex'>
+                     <input placeholder="电话" type="text" ng-model='handlerTel'>
+                </div>
+                <a href="" ng-click='addHandler()'>+</a>
+            </li>
+             <li>
+                <p>商户地址</p>
+                <div>
+                     <input type="text" ng-model='shAddress'>
+                     <a href="" ng-bind='addressCoord' ng-click='getCoords()'></a>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="tjsh-right">
+    <div class="tjsh-a1">
+        <a href="" ng-click='addCustomer()'>确定</a>
+        <a href="">取消</a>
+    </div>
+    <div class="tjsh-right-top">
+         <ul>
+                <li>
+                    <span style='width: 35%;margin-right: 30px;'>合同编号</span>
+                    <span style='width: 55%;'>合同名称</span><br>
+                    <input ng-model='bargainNum' style='width: 35%;margin-right: 30px;' type="text">
+                    <input ng-model='bargainName'  style='width: 55%;' type="text">
+                </li>
+                <li>
+                    <span>合同开始</span>
+                    <span>合同结束</span>
+                    <span>生效时间</span>
+                     <jqx-date-time-input ng-model='contractStartTime'></jqx-date-time-input>
+                    <jqx-date-time-input ng-model='contractEndTime'></jqx-date-time-input>
+                    <jqx-date-time-input ng-model='contractEffectTime'></jqx-date-time-input>
+                </li>
+                <li>
+                    <p>合同文件</p>
+                    <img src="../../images/icon/icon_img.png" alt="">
+                    <span ng-bind='contractName2'></span>
+                    <a id='a1' href="javascript:void(0)">+上传合同<input type="file" ng-model='contractName1' ng-change='getFileName()'></a>
+                    <a href="" id='a2'>查看详情</a>
+                    <p style='width:50%;font-size:12px;color:#808fa3;margin:10px auto'><img src="../../images/icon/icon_contract.png" alt="">这份合同从<span ng-bind='contractStartTime'></span>日开始 至 <span ng-bind='contractEndTime'></span>止</p>
+                </li>
+            </ul>
+    </div>
+    <div class="tjsh-right-bot" ng-scrollbar>
+        <p>服务项目</p>
+        <select ng-model='serviceItem'>
+            <option ng-repeat='serviceItem in serviceItems' ng-bind='serviceItem'>车美容-普洗</option>
+            <option>车美容-普洗</option>
+        </select>
+        <ul>
+            <li ng-repeat='carType in carTypes'>
+            <a href="" ng-class='{"active":flag5}' ng-bind='carType' ng-click='getFlag5()'></a>
+            小型车
+            <input type="number" ng-show='flag5' step='5' value='5'>
+            </li>
+
+        </ul>
+        <button type="">+添加服务项目</button>
+    </div>
+
+        </div>
+</div>

@@ -1,0 +1,161 @@
+<div class="content-left">
+    <h1>权限用户</h1>
+    <ul class="operation-list">
+        <li><button>添加用户</button></li>
+        <li><img src="images/icon/icon_edit.png"><span>编辑</span></li>
+        <li><img src="images/icon/icon_enable.png"><span>启用</span></li>
+        <li><img src="images/icon/icon_disable.png"><span>失效</span></li>
+    </ul>
+    <div class="list" ng-scrollbar scrollbar-x="true" scrollbar-y="false">
+         <table class="table-header">
+            <tr>
+                <th width="25" ng-show="!isExtra"></th>
+                <th width="124">人员名</th>
+                <th width="134">手机号</th>
+                <th width="134">权限组</th>
+                <th width="134">创建人</th>
+                <th width="124">创建时间</th>
+                <th width="124">最后登录时间</th>
+            </tr>
+         </table>
+         <div class="table-content" ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+            <table>
+                <tr ng-repeat="qxyh in qxyhList" ng-dblclick="showExtra()">
+                    <td width="25" ng-show="!isExtra">
+                        <input type="checkbox" name="user" id="{{$index}}">
+                        <label for="{{$index}}" ng-class="{true: 'active'}[qxyh.isActive]" ng-click="changeActive(qxyh)"></label>
+                    </td>
+                    <td width="124" ng-bind="qxyh.name"></td>
+                    <td width="134" ng-bind="qxyh.tel"></td>
+                    <td width="134" ng-bind="qxyh.group"></td>
+                    <td width="134" ng-bind="qxyh.creater"></td>
+                    <td width="124" ng-bind="qxyh.createTime"></td>
+                    <td width="124" ng-bind="qxyh.lastTime"></td>
+                </tr>
+            </table>
+         </div>
+    </div>
+    <img src="images/bg/bg-page-line.png" class="page-line">
+    <div class="pager">
+        <pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange(currentPage)" first-text="" next-text="" prev-text="" last-text=""></pager>
+    </div>
+</div>
+<div class="content-right search-list">
+    <h2>搜索</h2>
+    <div class="search-div" ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+        <form name="search_form" novalidate ng-submit="searchForm()">
+            <ul>
+                <li>
+                    <input class="search-i" type="text" placeholder="请输入需要查找的人名">
+                </li>
+                <li>
+                    <h5>合同存续时间</h5>
+                    <jqx-date-time-input jqx-on-change="change(event)" jqx-settings="settings"></jqx-date-time-input>
+                </li>
+                <li>
+                    <h5>账户状态</h5>
+                    <select>
+                        <option>启用中</option>
+                    </select>
+                </li>
+                <li>
+                    <h5>所属权限组</h5>
+                    <select>
+                        <option>全部</option>
+                    </select>
+                </li>
+            </ul>
+            <button type="submit" class="search_btn" ng-disabled="search_form.$invalid"></button>
+        </form>
+    </div>
+</div>
+<div class="content-extra" ng-class="{true: 'extra-show',false: 'extra-hide'}[isExtra]">
+    <div class="extra-header">
+        <img src="images/btn/btn_back.png" ng-click="hideExtra()">
+        <h5>权限人员管理</h5>
+        <botton class="edit" ng-click="edit()" ng-show="!isEdit">修改</botton>
+        <botton class="edit" ng-click="srue()" ng-show="isEdit">确定</botton>
+    </div>
+    <div class="extra" ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+        <div class="extra-content">
+            <div class="m-b-20">
+                <p class="w-280 m-50">员工代码</p><p class="w-150">权限状态</p>
+                <input type="text" class="w-280 m-50 h-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-model="code" ng-disabled="!isEdit">
+                <select class="w-150 h-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-disabled="!isEdit">
+                    <option>启用中</option>
+                    <option>失效中</option>
+                </select>
+            </div>
+            <div class="m-b-20">
+                <p class="w-150 m-50">姓名</p><p class="w-200">地区</p>
+                <input type="text" class="w-150 m-50 h-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-model="code" ng-disabled="!isEdit">
+                <select class="w-200 h-50" ng-class="{true: 'readonly-border'}[!isEdit]"ng-disabled="!isEdit">
+                    <option>启用中</option>
+                    <option>失效中</option>
+                </select>
+            </div>
+            <div class="m-b-20">
+                <p class="w-150 m-50">权限组</p><p class="w-280"></p>
+                <select class="w-150 h-50 m-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-disabled="!isEdit">
+                    <option>启用中</option>
+                    <option>失效中</option>
+                </select>
+                <select class="w-280 h-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-disabled="!isEdit">
+                    <option>启用中</option>
+                    <option>失效中</option>
+                </select>
+                <div class="i-d w-150 h-50 m-50"></div>
+                <select class="w-280 h-50" ng-class="{true: 'readonly-border'}[!isEdit]" ng-disabled="!isEdit">
+                    <option>启用中</option>
+                    <option>失效中</option>
+                </select>
+            </div>
+            <div class="m-b-20">
+                <p class="w-150 m-50">负责商户</p><p class="w-280"></p>
+                <div class="w-480 h-50 p-l-22 b-e9e">
+                    <span>已负责</span>
+                    <span>13家</span>
+                </div>
+                <botton class="view" ng-click="viewList()">查看商户列表</bottom>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="mark" ng-if="isView"> 
+    <div class="content-left">
+        <h1><img src="images/btn/btn_back_mark.png" ng-click="closeView()"> 商户列表</h1>
+        <div class="list" ng-scrollbar scrollbar-x="true" scrollbar-y="false">
+            <table class="table-header">
+                <tr>
+                    <th width="25"></th>
+                    <th width="124">人员名</th>
+                    <th width="134">手机号</th>
+                    <th width="134">权限组</th>
+                    <th width="134">创建人</th>
+                    <th width="124">创建时间</th>
+                    <th width="124">最后登录时间</th>
+                </tr>
+            </table>
+            <div class="table-content" ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+                <table>
+                    <tr ng-repeat="qxyh in qxyhList">
+                        <td width="25">
+                            <input type="checkbox" name="user" id="{{$index}}">
+                            <label for="{{$index}}" ng-class="{true: 'active'}[qxyh.isActive]" ng-click="changeActive(qxyh)"></label>
+                        </td>
+                        <td width="124" ng-bind="qxyh.name"></td>
+                        <td width="134" ng-bind="qxyh.tel"></td>
+                        <td width="134" ng-bind="qxyh.group"></td>
+                        <td width="134" ng-bind="qxyh.creater"></td>
+                        <td width="124" ng-bind="qxyh.createTime"></td>
+                        <td width="124" ng-bind="qxyh.lastTime"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <img src="images/bg/bg-page-line.png" class="page-line">
+        <div class="pager">
+            <pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange(currentPage)" first-text="" next-text="" prev-text="" last-text=""></pager>
+        </div> 
+    </div>
+ </div> 

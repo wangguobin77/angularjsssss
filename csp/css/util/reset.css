@@ -1,0 +1,8 @@
+body,header,footer,div,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin: 0;padding: 0;box-sizing: border-box; }
+body{ font: 14px '微软雅黑','Microsoft Yahei','Hiragino Sans GB',tahoma,arial,'宋体';background: #fff;-webkit-text-size-adjust: 100%; }
+a{ color: #000;text-decoration: none;display: inline-block; }
+a:hover{ color: #3468F1;text-decoration: none; }
+em{ font-style: normal; }
+li{ list-style: none; }
+img{ border: 0;vertical-align: middle; }
+table{ border-collapse: collapse;border-spacing: 0; }

@@ -1,0 +1,39 @@
+<div class="content-left">
+    <h1>服务设置</h1>
+    <div class="set-list">
+        <h4>服务大类</h4>
+        <div ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+            <ul>
+                <li ng-repeat="sc in serveClass" ng-bind="sc.text" ng-class="{true: 'active'}[$index == scIndex]" ng-click="changeSCActive(this)"></li>
+            </ul>
+        </div>
+        <input class="grouping" type="text" placeholder="请输入服务大类名称">
+    </div>
+    <div class="set-list-big">
+         <h4>服务项目</h4>
+         <div ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+            <ul>
+                 <li ng-repeat="item in items" ng-class="{true: 'active'}[$index == itemIndex]" ng-click="changeItemActive(this)">
+                    <img ng-src="images/icon/{{item.src}}">
+                    <span ng-bind="item.text"></span>
+                </li> 
+            </ul>
+        </div>
+        <img class="btn_addItem" src="images/btn/btn_addItem.png" ng-click="addItem()">
+    </div>
+</div>
+<div class="content-right right-shadow">
+    <botton class="edit" ng-click="edit()" ng-show="!isEdit">修改</botton>
+    <input class="right-title" ng-class="{true: 'readonly'}[!isEdit]" type="text" value="普洗"  ng-disabled="!isEdit">
+    <div class="list" ng-scrollbar scrollbar-x="false" scrollbar-y="true">
+        <div class="list-model" ng-repeat="fwsz in fwszList">
+            <h5 ng-bind="fwsz.carType"></h5>
+            <img class="btn_switch" ng-src="images/btn/{{fwsz.src}}" ng-click="btnSwith(this)"> 
+            <span ng-bind="fwsz.text"></span>
+            <input class="option" ng-class="{true: 'read'}[!fwsz.isType] " type="text" ng-model="fwsz.content" ng-disabled="!fwsz.isType || !isEdit">
+            <input type="number" ng-model="fwsz.count" min="0" ng-class="{true: 'read'}[!fwsz.isType]" ng-disabled="!fwsz.isType || !isEdit"> rmb / 次
+        </div>
+    </div>
+    <img class="btn_addItem" src="images/btn/btn_addPrice.png" ng-click="addPrice()" ng-if="!isEdit">
+    <bottom class="sure" ng-click="sureEdit()" ng-if="isEdit">确定修改</bottom>
+</div>

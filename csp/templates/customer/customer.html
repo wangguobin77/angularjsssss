@@ -1,0 +1,397 @@
+<div class="content-left">
+    <ul class="title-list">
+        <li>
+            <img alt="" class="cust-img-1" src="images/icon/icon_arrow-left.png"/>
+        </li>
+        <li>
+            <h1 class="cust-h1-1">
+                商户
+            </h1>
+        </li>
+    </ul>
+    <ul class="operation-list">
+    <li ui-sref=".tjsh">
+            <img src="images/icon/icon_edit.png">
+                <span>
+                    商户
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_edit.png">
+                <span>
+                    导出商户信息
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_edit.png">
+                <span>
+                    重置密码
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_edit.png">
+                <span>
+                    合同记录
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_edit.png">
+                <span>
+                    上线
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_enable.png">
+                <span>
+                    下线
+                </span>
+            </img>
+        </li>
+        <li>
+            <img src="images/icon/icon_disable.png"/>
+            <span>
+                解约
+            </span>
+        </li>
+    </ul>
+    <div class="list" ng-scrollbar="" scrollbar-x="true" scrollbar-y="false" style="margin-top: 9%;overflow: hidden;">
+        <table class="table-header">
+            <tr>
+                <th width="25">
+                </th>
+                <th width="135">
+                    商户编号
+                </th>
+                <th width="154">
+                    商户名称
+                </th>
+                <th width="156">
+                    地址
+                </th>
+                <th width="78">
+                    类型
+                </th>
+                <th width="92">
+                    合同开始
+                    <img alt="" src="../../images/icon/icon_arrow-top.png"/>
+                </th>
+                <th width="92">
+                    合同结束
+                </th>
+                <th width="67">
+                    状态
+                </th>
+            </tr>
+        </table>
+        <div ng-class="{'table-content':true,'animate1':expression1}" ng-scrollbar="" scrollbar-x="false" scrollbar-y="true" style="position: relative;">
+            <table>
+                <tr ng-click="getInfo($index)" ng-repeat="sh in shList">
+                    <td width="25">
+                        <input id="{{$index}}" name="user" type="checkbox">
+                            <label for="{{$index}}" ng-class="{true: 'active'}[sh.isActive]" ng-click="changeActive(sh)">
+                            </label>
+                        </input>
+                    </td>
+                    <td ng-bind="sh.num" width="135">
+                    </td>
+                    <td ng-bind="sh.name" width="154">
+                    </td>
+                    <td ng-bind="sh.address" width="156">
+                    </td>
+                    <td ng-bind="sh.type" width="78">
+                    </td>
+                    <td ng-bind="sh.startTime" width="92">
+                    </td>
+                    <td ng-bind="sh.endTime" width="92">
+                    </td>
+                    <td ng-bind="sh.status" width="67">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- 商户信息页面 -->
+    <div ng-class="{'Info':true,'animate2':expression2}">
+        <img alt="" class="cust-img-2" src="../images/icon/icon_arrow_left_white.png"/>
+        <h1 class="cust-h1-2" ng-show="forbidden">
+            商户信息
+        </h1>
+        <h1 class="cust-h1-2" ng-show="!forbidden">
+            商户信息修改
+        </h1>
+        <a class="cust-a-1" href="" ng-click="delDisabled()" ng-show="forbidden">
+            修改
+        </a>
+        <a class="cust-a-1" href="" ng-click="beSure()" ng-show="!forbidden">
+            确定
+        </a>
+        <div class="tjsh-left" ng-scrollbar="">
+            <ul style="margin:1.3% 0 1.3% 2.5%;">
+                <li>
+                    <span class="span1">
+                        公司名称
+                    </span>
+                    <span class="span2">
+                        状态
+                    </span>
+                    <input class="input1" ng-disabled="forbidden" ng-model="shInfoList.gsName" type="text">
+                        <select ng-disabled="forbidden" ng-model="shInfoList.states">
+                            <option ng-bind="state" ng-repeat="state in shInfoList.states">
+                            </option>
+                        </select>
+                    </input>
+                </li>
+                <li>
+                    <p>
+                        商户名称
+                    </p>
+                    <input ng-disabled="forbidden" ng-model="shInfoList.custName" type="text">
+                    </input>
+                </li>
+                <li>
+                    <span>
+                        账号
+                    </span>
+                    <span ng-show="!forbidden">
+                        密码
+                    </span>
+                    <span>
+                        营业时间
+                    </span>
+                    <br>
+                        <input ng-disabled="forbidden" ng-model="shInfoList.account" type="text">
+                        <input ng-disabled="forbidden" ng-model="shInfoList.password" ng-show="!forbidden" type="text">
+                        <input class="wid" ng-disabled="forbidden" ng-model="shInfoList.openTime" type="text">
+                        <input class="wid" ng-disabled="forbidden" ng-model="shInfoList.closeTime" type="text">
+                                    </input>
+                                </input>
+                            </input>
+                        </input>
+                    </br>
+                </li>
+                <li>
+                    <p>
+                        银行账号
+                    </p>
+                    <div>
+                        <input ng-disabled="forbidden" ng-model="shInfoList.bankAccount" type="text">
+                            <a href="" ng-bind="shInfoList.bankName" ng-disabled="forbidden">
+                            </a>
+                        </input>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        商户负责人
+                    </p>
+                    <div ng-repeat="handler in shInfoList.handlers">
+                        <input ng-disabled="forbidden" ng-model="handler.name" style="width: 28%;" type="text">
+                            <input ng-model="handler.sex" style="width: 18%;" type="text">
+                                <input ng-disabled="forbidden" ng-model="handler.tel" style="width: 50%;" type="text">
+                                </input>
+                            </input>
+                        </input>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        商户地址
+                    </p>
+                    <div>
+                        <input ng-disabled="forbidden" ng-model="shInfoList.shAddress" type="text">
+                            <a href="" ng-bind="shInfoList.addressCoord">
+                            </a>
+                        </input>
+                    </div>
+                </li>
+                <li class="line">
+                </li>
+                <li>
+                    <p>
+                        拓展人员
+                    </p>
+                    <div ng-repeat="expander in shInfoList.expanders">
+                        <input ng-disabled="forbidden" ng-model="expander.name" style="width: 28%;" type="text">
+                            <input ng-disabled="forbidden" ng-model="expander.tel" style="width: 58%;" type="text">
+                            </input>
+                        </input>
+                    </div>
+                </li>
+                <li class="line">
+                </li>
+                <li>
+                    <span>
+                        已关联机构
+                    </span>
+                    <label ng-class='{"active":contact}'>
+                    </label>
+                    <span class="span3">
+                        已自动关联机构
+                    </span>
+                    <div>
+                        <span>
+                            已关联机构
+                        </span>
+                        <span ng-bind="shInfoList.contactNum">
+                        </span>
+                        <span>
+                            家
+                        </span>
+                        <a href="" ng-bind="contantTxt">
+                        </a>
+                    </div>
+                </li>
+                <li class="line">
+                </li>
+                <li>
+                    <span style="width: 35%;margin-right: 190px;">
+                        合同编号
+                    </span>
+                    <span style="width: 55%;">
+                        合同名称
+                    </span>
+                    <br>
+                        <input ng-disabled="forbidden" ng-model="shInfoList.bargainNum" style="width: 35%;margin-right: 30px;" type="text">
+                            <input ng-disabled="forbidden" ng-model="shInfoList.bargainName" style="width: 55%;" type="text">
+                            </input>
+                        </input>
+                    </br>
+                </li>
+                <li>
+                    <span>
+                        合同开始
+                    </span>
+                    <span>
+                        合同结束
+                    </span>
+                    <span>
+                        生效时间
+                    </span>
+                    <jqx-date-time-input ng-disabled="forbidden" ng-model="shInfoList.contractStartTime">
+                    </jqx-date-time-input>
+                    <jqx-date-time-input ng-disabled="forbidden" ng-model="shInfoList.contractEndTime">
+                    </jqx-date-time-input>
+                    <jqx-date-time-input ng-disabled="forbidden" ng-model="shInfoList.contractEffectTime">
+                    </jqx-date-time-input>
+                </li>
+                <li>
+                    <p>
+                        合同文件
+                    </p>
+                    <img alt="" src="../images/icon/icon_img.png">
+                        <span ng-bind="shInfoList.contractName3" ng-show="forbidden" style="margin-right: 15%;">
+                        </span>
+                        <span ng-bind="contractName2" ng-show="!forbidden">
+                            文件名称
+                        </span>
+                        <a href="" ng-show="forbidden">
+                            查看合同详情
+                        </a>
+                        <a href="javascript:void(0)" id="a1" ng-show="!forbidden">
+                            +上传合同
+                            <input ng-change="getFileName()" ng-model="contractName1" type="file"/>
+                        </a>
+                        <a class="cut-a-2" href="" ng-bind="contractTxt">
+                        </a>
+                        <p class="cut-p-1"><img class='cust-img-3' src="../../images/icon/icon_contract.png" alt="">
+                            这份合同从
+                            <span ng-bind="shInfoList.contractStartTime">
+                            </span>
+                            日开始 至
+                            <span ng-bind="shInfoList.contractEndTime">
+                            </span>
+                            止
+                        </p>
+                    </img>
+                </li>
+                <li class="line">
+                </li>
+                <li>
+                    <p>
+                        服务项目
+                    </p>
+                    <div>
+                        <span class="span1" style="margin-right:20px;">
+                            已选择
+                            <span ng-bind="shInfoList.servicesNum1">
+                            </span>
+                            项
+                        </span>
+                        <span class="span2">
+                            未选择
+                            <span ng-bind="shInfoList.servicesNum2" style="color:#bdbdbd;">
+                            </span>
+                            项
+                        </span>
+                        <a href="" ng-bind="servicesTxt">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <img src="images/bg/bg-page-line.png" class="page-line">
+    <div class="pager">
+        <pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange(currentPage)" first-text="" next-text="" prev-text="" last-text=""></pager>
+    </div>
+</div>
+<div class="content-right search-list">
+    <h2>
+        搜索
+    </h2>
+    <div class="search-div" ng-scrollbar="" scrollbar-x="false" scrollbar-y="true">
+        <form name="search_form" ng-submit="searchForm()" novalidate="">
+            <ul>
+                <li>
+                    <input class="search-i" placeholder="商户名称、地址或合同编号" type="text">
+                    </input>
+                </li>
+                <li>
+                    <h5>
+                        合同存续时间
+                    </h5>
+                    <!-- <input class="search-time" type="text" placeholder="请输入起止时间"> -->
+                    <jqx-date-time-input jqx-on-change="change(event)" jqx-settings="settings">
+                    </jqx-date-time-input>
+                </li>
+                <li>
+                    <h5>
+                        区域选择
+                    </h5>
+                    <select>
+                        <option>
+                            全部
+                        </option>
+                    </select>
+                </li>
+                <li>
+                    <h5>
+                        商户类型
+                    </h5>
+                    <select>
+                        <option>
+                            非连锁
+                        </option>
+                    </select>
+                </li>
+                <li>
+                    <h5>
+                        商户状态
+                    </h5>
+                    <select>
+                        <option>
+                            全部
+                        </option>
+                    </select>
+                </li>
+            </ul>
+            <button class="search_btn" ng-disabled="search_form.$invalid" type="submit">
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="content-left system">
+    <a class="qx" ui-sref=".qx"><img src="images/btn/btn_set_1.png"></a>
+    <a class="dysz" ui-sref=".dysz"><img src="images/btn/btn_set_4.png"></a>
+    <a class="yhqx" ui-sref=".qxyh"><img src="images/btn/btn_set_3.png"></a>
+    <a class="fwsz" ui-sref=".fwsz"><img src="images/btn/btn_set_2.png"></a>
+</div>

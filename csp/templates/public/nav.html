@@ -1,0 +1,9 @@
+<img class='logo' src="images/logo/logo.png">
+    <nav class='nav' ng-scrollbar>
+        <ul class='nav-menu'>
+            <li ui-sref-active='active' ng-repeat='nav in navs'>
+                <img alt="" ng-src='images/icon/{{nav.src}}' />
+                <a ui-sref='.{{nav.href}}'' ng-bind='nav.text'></a>
+            </li>
+        </ul>
+    </nav>

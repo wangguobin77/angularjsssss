@@ -1,0 +1,116 @@
+<div class="content-left">
+    <div class="left-1">
+        <div class="tjt">
+            <h2>实时统计-月趋势-洗车新增</h2>
+            <ul>
+                <li>
+                    <img src="<%=request.getContextPath() %>/images/icon/icon_up.png">
+                    <p>217</p>
+                    <span>今日新增洗车</span>
+                </li>
+                <li>
+                    <p>3,185</p>
+                    <span>本月新增洗车</span>
+                </li>
+            </ul>
+            <div id="xc" class="histogram"></div>
+        </div>
+        <button class="download" ng-click="download()"></button>
+        <div class="tjt">
+            <h2>实时统计-月趋势-商户新增</h2>
+            <ul>
+                <li>
+                    <img src="<%=request.getContextPath() %>/images/icon/icon_up.png">
+                    <p>217</p>
+                    <span>今日新增商户</span>
+                </li>
+                <li>
+                    <p>3,185</p>
+                    <span>本月新增商户</span>
+                </li>
+            </ul>
+            <div id="sh" class="histogram"></div>
+        </div>
+    </div>
+    <div class="left-2">
+        <h2>积分兑换</h2>
+        <ul class="jfdh">
+            <li>
+                <h3>物料</h3>
+                <p>总计 <span>2938</span>种</p>
+            </li>
+            <li>
+                <h3>库存</h3>
+                <p>总计 <span>2938740</span>件</p>
+            </li>
+            <li>
+                <h3>项目</h3>
+                <p>总计 <span>29</span>个项目</p>
+            </li>
+            <li>
+                <h3>兑换</h3>
+                <p>总计 <span>2938740</span>笔</p>
+            </li>
+        </ul>
+        <h2 style='margin-top:30px;'>结算相关</h2>
+        <div class="step">
+            <ul class="step-1">
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">预约类结算</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">非预约类结算</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">结算记录（支出）</li>
+            </ul>
+            <ul class="step-2">
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">机构预约订单</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">机构非预约订单</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">结算记录（收入）</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">报表</li>
+            </ul>
+            <ul>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">积分兑换订单</li>
+                <li><img src="<%=request.getContextPath() %>/images/icon/icon_step.png">积分查询</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-right">
+    <div class="dbsx">
+        <div class="title">
+            <img src="<%=request.getContextPath() %>/images/icon/icon_dbsx_2.png" >
+            <h3>待办事项</h3>
+            <span>3条</span>
+        </div>
+        <hr>
+        <div class="sp-list" ng-scrollbar>
+            <ul>
+                <li>
+                    <span>2017-07-12 09:32</span>
+                    <h5>合同号 S219-29-384</h5>
+                    <label>需要审批</label>
+                </li>
+                <li>
+                    <span>2017-07-12 09:32</span>
+                    <h5>合同号 S219-29-384</h5>
+                    <label>需要审批</label>
+                </li>
+                <li>
+                    <span>2017-07-12 09:32</span>
+                    <h5>合同号 S219-29-384</h5>
+                    <label>需要审批</label>
+                </li>
+                <li>
+                    <span>2017-07-12 09:32</span>
+                    <h5>合同号 S219-29-384</h5>
+                    <label>需要审批</label>
+                </li>
+                <li>
+                    <span>2017-07-12 09:30</span>
+                    <h5>合同号 S219-29-384</h5>
+                    <label>需要审批</label>
+                </li>
+            </ul>
+        </div>
+        <div class="all">
+            <a href="#/examine">查看全部</a>
+        </div>
+    </div>
+</div>
